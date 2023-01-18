@@ -1,0 +1,15 @@
+.figure {
+  height: 40em;
+  width: 100%;
+}
+.img-home {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+a:hover{
+  text-decoration: none;
+  color: white;
+}
+  
+/* =============== NOSOTROS ========== */
