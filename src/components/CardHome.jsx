@@ -1,21 +1,12 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  SimpleGrid,
-  Heading,
-  Button,
-  Text,
-} from "@chakra-ui/react";
-import { CardGenerica } from "./Card";
+import { SimpleGrid } from "@chakra-ui/react";
+import { CardGenerica } from "./Cards/CardGen";
 export const CardHome = () => {
   const textButton = "Ver mas";
   return (
     <div className="container p-3 my-2">
       <SimpleGrid
-        spacing={140}
-        templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        spacing={4}
+        templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
       >
         <CardGenerica
           title="Internet"
@@ -45,19 +36,6 @@ export const CardHome = () => {
           caract3="Enlaces PTP (empresas)"
           textButton={textButton}
         />
-        {/* <Card>
-          <CardHeader className="text-success">
-            <Heading size="md">Telefonia IP</Heading>
-          </CardHeader>
-          <CardBody>
-            <Text>Servidor dedicado</Text>
-            <Text>Hosting</Text>
-            <Text>Servicios VPN</Text>
-          </CardBody>
-          <CardFooter>
-            <Button className="text-success">Ver mas</Button>
-          </CardFooter>
-        </Card> */}
       </SimpleGrid>
     </div>
   );

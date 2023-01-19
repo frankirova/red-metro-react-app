@@ -1,4 +1,3 @@
-import React from "react";
 import { FooterIcon } from "./FooterIcon";
 
 export const Footer = () => {

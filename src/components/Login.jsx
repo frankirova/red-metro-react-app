@@ -4,7 +4,7 @@ export const Login = () => {
   return (
     <Flex height="85vh" alignItems="center" justifyContent="center">
       <Flex direction="column" width='40%' background="gray.100" p={12} rounded={6}>
-        <Heading mb={6}>Log in</Heading>
+        <Heading mb={6}>Iniciar sesion</Heading>
         <Input
           placeholder="fran@gmail.com.ar"
           variant="failed"

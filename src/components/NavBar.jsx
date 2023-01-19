@@ -18,7 +18,7 @@ export const NavBar = () => {
               <Link to="/servicios">Sevicios</Link>
             </Nav.Link>
             <Nav.Link className="text-white">
-              <Link to="/">Productos</Link>
+              <Link to="/productos">Productos</Link>
             </Nav.Link>
             <Nav.Link className="text-white">
               <Link to="/nosotros">Nosotros</Link>

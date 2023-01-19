@@ -31,8 +31,8 @@ export const Contacto = () => {
     <Container bg="#fff" maxW="full" mt={0} centerContent overflow="hidden">
       <Flex>
         <Box
-          bg="#198754"
-          color="white"
+          bg="rgba(236,242,246,255)"
+          color="black"
           borderRadius="lg"
           m={{ sm: 4, md: 16, lg: 10 }}
           p={{ sm: 5, md: 5, lg: 16 }}
@@ -41,9 +41,9 @@ export const Contacto = () => {
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
                 <Box>
-                  <Heading>Contact</Heading>
-                  <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.100">
-                    Rellene el siguiente formulario para contactar
+                  <Heading>Contacto</Heading>
+                  <Text mt={{ sm: 3, md: 3, lg: 5 }} color="black">
+                    Rellene el siguiente formulario para contactarnos
                   </Text>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                     <VStack pl={0} spacing={3} alignItems="flex-start">
@@ -53,9 +53,9 @@ export const Contacto = () => {
                         height="48px"
                         width="200px"
                         variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #fff" }}
-                        leftIcon={<MdPhone color="#fff" size="20px" />}
+                        color="#000"
+                        _hover={{ border: "2px solid #000" }}
+                        leftIcon={<MdPhone color="#000" size="20px" />}
                       >
                         +54-351-389-0019
                       </Button>
@@ -64,9 +64,9 @@ export const Contacto = () => {
                         height="48px"
                         width="200px"
                         variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #fff" }}
-                        leftIcon={<MdEmail color="#fff" size="20px" />}
+                        color="#000"
+                        _hover={{ border: "2px solid #000" }}
+                        leftIcon={<MdEmail color="#000" size="20px" />}
                       >
                         info@redmetropolitana.com.ar
                       </Button>
@@ -75,9 +75,9 @@ export const Contacto = () => {
                         height="48px"
                         width="200px"
                         variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #fff" }}
-                        leftIcon={<MdLocationOn color="#fff" size="20px" />}
+                        color="#000"
+                        _hover={{ border: "2px solid #000" }}
+                        leftIcon={<MdLocationOn color="#000" size="20px" />}
                       >
                         27 de abril 370
                       </Button>

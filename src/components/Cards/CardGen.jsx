@@ -3,10 +3,10 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  SimpleGrid,
   Heading,
   Button,
   Text,
+  Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 export const CardGenerica = ({
@@ -16,11 +16,12 @@ export const CardGenerica = ({
   caract3,
   caract4,
   textButton,
-  to
+  to,
+  precio,
 }) => {
   return (
     <div>
-      <Card my={3} size='sm'>
+      <Card my={3} maxW="lg" variant='filled'>
         <CardHeader className="text-success">
           <Heading size="md"> {title}</Heading>
         </CardHeader>
@@ -29,9 +30,15 @@ export const CardGenerica = ({
           <Text>{caract2}</Text>
           <Text>{caract3}</Text>
           <Text>{caract4}</Text>
+          <Text my={4} color="green.600" fontSize="2xl">
+            {precio}
+          </Text>
         </CardBody>
+        <Divider color='gray.400' my={1} />
         <CardFooter>
-          <Button className="text-success"><Link to={to}>{textButton}</Link></Button>
+          <Button className="text-success">
+            <Link to={to}>{textButton}</Link>
+          </Button>
         </CardFooter>
       </Card>
     </div>
