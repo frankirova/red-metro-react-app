@@ -15,11 +15,12 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
-  Spinner
+  Spinner,
 } from "@chakra-ui/react";
 import { BsPerson } from "react-icons/bs";
 import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
 import { getContactDates } from "../../services/firebase-firestore/firestore/firestore";
+import { Mapa } from "./Mapa";
 
 export const Contacto = () => {
   const [contactDate, setcontactDate] = useState([]);
@@ -35,11 +36,11 @@ export const Contacto = () => {
   }, []);
 
   if (isLoading)
-  return (
-    <Flex height='85vh' alignItems="center" justifyContent="center">
-      <Spinner size='xl' color='green'/>
-    </Flex>
-  );  
+    return (
+      <Flex height="85vh" alignItems="center" justifyContent="center">
+        <Spinner size="xl" color="green" />
+      </Flex>
+    );
   return (
     <Container bg="#fff" maxW="full" mt={0} centerContent overflow="hidden">
       <Flex>
