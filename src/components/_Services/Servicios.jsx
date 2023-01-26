@@ -1,5 +1,7 @@
+import { Select, Spinner, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { getServices } from "../../services/firebase-firestore/firestore/firestore";
+import { getServices } from "../../../services/firebase-firestore/firestore/firestore";
+import { H2 } from "../H2";
 import { ServicesList } from "./ServicesList";
 
 export const Servicios = () => {
@@ -12,9 +14,16 @@ export const Servicios = () => {
       })
       .finally(() => setIsLoading(false));
   }, []);
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading)
+    return (
+      <Flex height="85vh" alignItems="center" justifyContent="center">
+        <Spinner size="xl" color="green" />
+      </Flex>
+    );
   return (
     <div>
+      <H2>Servicios</H2>
+      <Select />
       <ServicesList serv={services} />
     </div>
   );

@@ -1,5 +1,6 @@
-body{
+body {
   height: 80vh;
+  
 }
 .figure {
   height: 40em;
@@ -11,5 +12,8 @@ body{
   object-fit: cover;
 }
 
-  
+a:hover {
+  text-decoration: none !important;
+  color: #198754 !important;
+}
 /* =============== NOSOTROS ========== */

@@ -1,13 +1,12 @@
+import { useState, useEffect } from "react";
 import {
   Container,
   Flex,
   Box,
   Heading,
   Text,
-  IconButton,
   Button,
   VStack,
-  HStack,
   Wrap,
   WrapItem,
   FormControl,
@@ -16,17 +15,31 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
+  Spinner
 } from "@chakra-ui/react";
-import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
-  MdOutlineEmail,
-} from "react-icons/md";
-import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
+import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
+import { getContactDates } from "../../services/firebase-firestore/firestore/firestore";
 
 export const Contacto = () => {
+  const [contactDate, setcontactDate] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  //   const { categoryId } = useParams();
+
+  useEffect(() => {
+    getContactDates()
+      .then((contactDate) => {
+        setcontactDate(contactDate);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading)
+  return (
+    <Flex height='85vh' alignItems="center" justifyContent="center">
+      <Spinner size='xl' color='green'/>
+    </Flex>
+  );  
   return (
     <Container bg="#fff" maxW="full" mt={0} centerContent overflow="hidden">
       <Flex>
@@ -46,42 +59,48 @@ export const Contacto = () => {
                     Rellene el siguiente formulario para contactarnos
                   </Text>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
-                    <VStack pl={0} spacing={3} alignItems="flex-start">
-                      <Button
-                        textAlign="left"
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#000"
-                        _hover={{ border: "2px solid #000" }}
-                        leftIcon={<MdPhone color="#000" size="20px" />}
-                      >
-                        +54-351-389-0019
-                      </Button>
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#000"
-                        _hover={{ border: "2px solid #000" }}
-                        leftIcon={<MdEmail color="#000" size="20px" />}
-                      >
-                        info@redmetropolitana.com.ar
-                      </Button>
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#000"
-                        _hover={{ border: "2px solid #000" }}
-                        leftIcon={<MdLocationOn color="#000" size="20px" />}
-                      >
-                        27 de abril 370
-                      </Button>
-                    </VStack>
+                    {contactDate.map((contactDate) => (
+                      <VStack pl={0} spacing={3} alignItems="flex-start">
+                        <Button
+                          textAlign="start"
+                          size="md"
+                          height="48px"
+                          width="200px"
+                          variant="ghost"
+                          color="#000"
+                          _hover={{ border: "2px solid #000" }}
+                          leftIcon={<MdPhone color="#000" size="20px" />}
+                        >
+                          {contactDate.phone}
+                        </Button>
+
+                        <Button
+                          size="md"
+                          textAlign="start"
+                          height="48px"
+                          width="200px"
+                          variant="ghost"
+                          color="#000"
+                          _hover={{ border: "2px solid #000" }}
+                          leftIcon={<MdEmail color="#000" size="20px" />}
+                        >
+                          {contactDate.email}
+                        </Button>
+
+                        <Button
+                          size="md"
+                          textAlign="start"
+                          height="48px"
+                          width="200px"
+                          variant="ghost"
+                          color="#000"
+                          _hover={{ border: "2px solid #000" }}
+                          leftIcon={<MdLocationOn color="#000" size="20px" />}
+                        >
+                          {contactDate.direction}
+                        </Button>
+                      </VStack>
+                    ))}
                   </Box>
                 </Box>
               </WrapItem>
@@ -140,21 +159,3 @@ export const Contacto = () => {
     </Container>
   );
 };
-// <Stack spacing={5} align="center">
-//             <Input
-//             max={50}
-//               focusBorderColor="green.300"
-//               errorBorderColor="red.300"
-//               placeholder="E-mail"
-//             />
-//             <Input
-//               focusBorderColor="green.300"
-//               errorBorderColor="red.300"
-//               placeholder="Numero Telefonico"
-//             />
-//             <Textarea
-//               focusBorderColor="green.300"
-//               errorBorderColor="red.300"
-//               placeholder="Mensaje..."
-//             />
-//           </Stack>

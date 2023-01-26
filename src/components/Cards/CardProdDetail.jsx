@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
 import {
   Card,
   Heading,
@@ -8,10 +10,22 @@ import {
   Divider,
   Image,
   ButtonGroup,
-  Button,
   Text,
 } from "@chakra-ui/react";
-export const CardProd = ({ characteristics, price, name, image, toBtnVerMas }) => {
+import { Counter } from "../Counter";
+export const CardProdDetail = ({
+  prodById,
+  id,
+  characteristics,
+  price,
+  name,
+  image,
+}) => {
+  const { addToCart } = useContext(CartContext);
+
+  const addTo = (quantity) => {
+    addToCart({ id, image, price, name, quantity });
+  };
   return (
     <div>
       <Card m={4} maxW="sm" variant="filled">
@@ -27,14 +41,13 @@ export const CardProd = ({ characteristics, price, name, image, toBtnVerMas }) =
         </CardBody>
         <Divider color="gray.400" my={1} />
         <CardFooter>
-          <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="green">
-              <Link to="">Agregar al carrito</Link>
-            </Button>
-            <Button variant="ghost" colorScheme="green">
-              <Link to={toBtnVerMas}>Ver mas</Link>
-            </Button>
-          </ButtonGroup>
+          {prodById.stock > 0 ? (
+            <ButtonGroup spacing="2">
+              <Counter prodById={prodById} addTo={addTo} />
+            </ButtonGroup>
+          ) : (
+            <p>Sin Stock</p>
+          )}
         </CardFooter>
       </Card>
     </div>

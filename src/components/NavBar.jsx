@@ -1,10 +1,17 @@
+import { useContext } from "react";
+import { authContext } from "../context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "../components/styles/NavBar.css";
+import { CartWidget } from "./CartWidget";
+import { DrawerCart } from "./Drawer";
+import { UserView } from "./UserView";
 
 export const NavBar = () => {
+  const { isLoggedIn } = useContext(authContext);
+
   return (
     <Navbar className="nav-bar" expand="lg" variant="dark">
       <Container>
@@ -18,7 +25,7 @@ export const NavBar = () => {
               <Link to="/servicios">Sevicios</Link>
             </Nav.Link>
             <Nav.Link className="text-white">
-              <Link to="/productos">Productos</Link>
+              <Link to="/productos">Tienda</Link>
             </Nav.Link>
             <Nav.Link className="text-white">
               <Link to="/nosotros">Nosotros</Link>
@@ -33,13 +40,22 @@ export const NavBar = () => {
               Autogestion
             </Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link className="text-white">
-              <Link to='/login'>Iniciar sesion</Link>
-            </Nav.Link>
-            <Nav.Link className="text-white">
-              <Link to='/signup'>Registrarse</Link>
-            </Nav.Link>
+          <Nav className="align-items-center">
+            {!isLoggedIn ? (
+              <>
+                <Nav.Link className="text-white">
+                  <Link to="/login">Iniciar sesion</Link>
+                </Nav.Link>
+                <Nav.Link className="text-white">
+                  <Link to="/signup">Registrarse</Link>
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <CartWidget />
+                <UserView />
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

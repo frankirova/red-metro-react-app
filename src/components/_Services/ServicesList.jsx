@@ -1,4 +1,4 @@
-import { CardGenerica } from "./Cards/CardGen";
+import { CardGenerica } from "../Cards/CardGen";
 import { SimpleGrid } from "@chakra-ui/react";
 
 export const ServicesList = ({ serv }) => {

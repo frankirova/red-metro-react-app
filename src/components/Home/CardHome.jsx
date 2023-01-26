@@ -1,5 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { CardGenerica } from "./Cards/CardGen";
+import { CardGenerica } from "../Cards/CardGen";
 export const CardHome = () => {
   const textButton = "Ver mas";
   return (
