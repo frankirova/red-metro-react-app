@@ -16,7 +16,7 @@ export const Nosotros = () => {
       >
         <GridItem
           w="600px"
-          bgImage="url('../../public/assets/image/torre-angela5.webp')"
+          bgImage="url('/assets/image/torre-angela5.webp')"
           bgRepeat="no-repeat"
           bgSize="cover"
           area={"image"}
