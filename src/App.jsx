@@ -15,6 +15,7 @@ import { ProductDetailContainer } from "./components/Products/ProductDetailConta
 import { CartProvider } from "./context/CartContext";
 import { DrawerCart } from "./components/Drawer";
 import { AuthProvider } from "./context/AuthContext";
+import { PreguntasFrecuentes } from "./components/PreguntasFrecuentes";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/FAQ" element={<PreguntasFrecuentes />} />
             </Routes>
             <Footer />
           </BrowserRouter>

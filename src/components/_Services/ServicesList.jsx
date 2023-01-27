@@ -14,7 +14,8 @@ export const ServicesList = ({ serv }) => {
             title={serv.title}
             precio={serv.price}
             caract1={serv.characteristics}
-            textButton='Ver mas'
+            textButton="Elegir abono"
+            to='/signup'
           />
         ))}
       </SimpleGrid>

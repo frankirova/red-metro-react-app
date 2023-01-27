@@ -6,7 +6,6 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "../components/styles/NavBar.css";
 import { CartWidget } from "./CartWidget";
-import { DrawerCart } from "./Drawer";
 import { UserView } from "./UserView";
 
 export const NavBar = () => {
@@ -33,12 +32,18 @@ export const NavBar = () => {
             <Nav.Link className="text-white">
               <Link to="/contacto">Contacto</Link>
             </Nav.Link>
-            <Nav.Link
-              href="https://redmetropolitana.autogestion.io/"
-              className="text-white"
-            >
-              Autogestion
-            </Nav.Link>
+            {isLoggedIn ? (
+              <Nav.Link
+                href="https://redmetropolitana.autogestion.io/"
+                className="text-white"
+              >
+                Autogestion
+              </Nav.Link>
+            ) : (
+              <Nav.Link className="text-white">
+                <Link to='/FAQ'>Preguntas frecuentes</Link>
+              </Nav.Link>
+            )}
           </Nav>
           <Nav className="align-items-center">
             {!isLoggedIn ? (
